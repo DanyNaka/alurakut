@@ -40,6 +40,16 @@ export default function Home() {
       id: '12345609',
       title: 'Eu odeio acordar cedo',
       image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
+    },
+    {
+      id: '12345608',
+      title: 'Estudos',
+      image: 'https://picsum.photos/id/1/200/300'
+    },
+    {
+      id: '12345610',
+      title: 'Random',
+      image: 'https://picsum.photos/id/1020/200/300'
     }
   ])
   const githubUser = 'danynaka'
@@ -53,7 +63,7 @@ export default function Home() {
   return (
     <>
       {/* ^^ agrupador react não deixa colocar mais de uma tag junto sem esse agrupador ou div.*/}
-      <AlurakutMenu />
+      <AlurakutMenu githubUser={githubUser} />
       <MainGrid>
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
           <ProfileSidebar githubUser={githubUser} />
@@ -90,6 +100,7 @@ export default function Home() {
                   name="title"
                   arial-label="Qua vai ser o nome da sua comunidade?"
                   type="text"
+                  required
                 />
               </div>
               <div>
@@ -97,6 +108,7 @@ export default function Home() {
                   placeholder="Coloque uma URL para usarmos de capa"
                   name="image"
                   arial-label="Coloque uma URL para usarmos de capa"
+                  required
                 />
               </div>
 
@@ -110,24 +122,6 @@ export default function Home() {
           style={{ gridArea: 'profileRelationsArea' }}
         >
           <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
-            <ul>
-              {comunidades.map(itemAtual => {
-                return (
-                  <li key={itemAtual.id}>
-                    <a href={`/users/${itemAtual.title}`} key={itemAtual.title}>
-                      {/* <img src={`http://placehold.it/300x300`} /> 
-                      Cria uma imagem virtual do tamanho que sugerir.*/}
-                      <img src={itemAtual.image} />
-                      <span>{itemAtual.title}</span>
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
-
-          <ProfileRelationsBoxWrapper>
             <h2 className="smallTitle">
               Pessoas da Comunidade ({pessoasFavoritas.length})
             </h2>
@@ -136,12 +130,35 @@ export default function Home() {
               {pessoasFavoritas.map(itemAtual => {
                 return (
                   <li key={itemAtual}>
-                    <a href={`/users/${itemAtual}`}>
+                    <a href={`https://github.com/${itemAtual}`} target="_blank">
                       <img src={`https://github.com/${itemAtual}.png`} />
                       <span>{itemAtual}</span>
                     </a>
                   </li>
                 )
+              })}
+            </ul>
+          </ProfileRelationsBoxWrapper>
+
+          <ProfileRelationsBoxWrapper>
+            <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
+            <ul>
+              {/* pega o index e mostra apenas os 6 primeiros registros */}
+              {comunidades.map((itemAtual, index) => {
+                if (index < 6)
+                  return (
+                    <li key={itemAtual.id}>
+                      <a
+                        href={`/users/${itemAtual.title}`}
+                        key={itemAtual.title}
+                      >
+                        {/* <img src={`http://placehold.it/300x300`} /> 
+                      Cria uma imagem virtual do tamanho que sugerir.*/}
+                        <img src={itemAtual.image} />
+                        <span>{itemAtual.title}</span>
+                      </a>
+                    </li>
+                  )
               })}
             </ul>
           </ProfileRelationsBoxWrapper>
