@@ -11,7 +11,15 @@ const GlobalStyle = createGlobalStyle`
 
   body {  
     font-family:sans-serif;
-    background-color: #D9E6F6;
+    /* background-color: #D9E6F6; */
+    background-color: #FFA4C8;
+    /* background-image: url('https://アニメ壁紙.jp/image_wallpaper/1543161027_thumb.jpg'); */
+    /* background-image: url('https://i1.wp.com/wallur.com/wp-content/uploads/2016/12/cardcaptor-background-11.png?resize=1366%2C768'); */
+    background-image: url('https://i.pinimg.com/564x/f0/5f/b5/f05fb5cb167df01f91dd9ca9ef19980b.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
   }
 
   #__next{

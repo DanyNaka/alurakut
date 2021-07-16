@@ -21,7 +21,8 @@ export function AlurakutMenu({ githubUser }) {
   return (
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
-        <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
+        {/* <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} /> */}
+        <AlurakutMenu.Logo src="/img/logo.png" />
 
         <nav style={{ flex: 1 }}>
           {[
@@ -58,9 +59,12 @@ export function AlurakutMenu({ githubUser }) {
 }
 AlurakutMenu.Wrapper = styled.header`
   width: 100%;
-  background-color: #308bc5;
+  /* ----- fundo menu bar ----- */
+  /* background-color: #308bc5; */
+  background-color: #ff477e;
   .alurakutMenuProfileSidebar {
-    background: white;
+    /* background: white; */
+    background: #ffa4c8;
     position: fixed;
     z-index: 100;
     padding: 46px;
@@ -83,9 +87,11 @@ AlurakutMenu.Wrapper = styled.header`
     a {
       font-size: 18px;
     }
+    /* menu sanduiche */
     .boxLink {
       font-size: 18px;
-      color: #2e7bb4;
+      /* color: white; */
+      color: #333;
       -webkit-text-decoration: none;
       text-decoration: none;
       font-weight: 800;
@@ -98,7 +104,9 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
   .container {
-    background-color: #308bc5;
+    /*----- menu bar ----- */
+    /* background-color: #308bc5; */
+    background-color: #ff477e;
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -145,7 +153,8 @@ AlurakutMenu.Wrapper = styled.header`
     }
     input {
       color: #ffffff;
-      background: #5579a1;
+      /* background: #5579a1; */
+      background: hsl(44, 90%, 65%);
       padding: 10px 42px;
       border: 0;
       background-image: url(${`${BASE_URL}/icons/search.svg`});
@@ -162,9 +171,10 @@ AlurakutMenu.Wrapper = styled.header`
 `
 AlurakutMenu.Logo = styled.img`
   background-color: #ffffff;
-  padding: 9px 14px;
+  /* padding: 9px 14px; */
+  padding: 1px 10px 5px 2px;
   border-radius: 1000px;
-  height: 34px;
+  height: 35px;
 `
 
 function AlurakutMenuProfileSidebar({ githubUser }) {
@@ -230,7 +240,8 @@ export function AlurakutProfileSidebarMenuDefault() {
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
     font-size: 12px;
-    color: #2e7bb4;
+    /* color: #2e7bb4; */
+    color: #333;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
